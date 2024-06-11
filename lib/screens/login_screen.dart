@@ -11,7 +11,16 @@ class LoginScreen extends StatelessWidget {
         title: const Center(child: Text("Login Page")),
         backgroundColor: Colors.amber[800],
       ),
-      body: const Center(child: Text('Login forwil appear here')),
+      body: Center(
+          child: Column(
+        children: [
+          TextFormField(),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField()
+        ],
+      )),
     );
   }
 }
