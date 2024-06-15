@@ -38,17 +38,34 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       TextFormField(
                         decoration: const InputDecoration(
-                            hintText: 'Enter your username',
-                            labelText: 'Username'),
+                          hintText: 'Enter your username',
+                          labelText: 'Username',
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide:
+                                BorderSide(color: Colors.orange, width: 2.0),
+                          ),
+                        ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 30,
                       ),
                       TextFormField(
                         decoration: const InputDecoration(
-                            focusColor: Colors.orange,
-                            hintText: '*****',
-                            labelText: 'Password'),
+                          hintText: '*****',
+                          labelText: 'Password',
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            borderSide:
+                                BorderSide(color: Colors.orange, width: 2.0),
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         height: 20,
