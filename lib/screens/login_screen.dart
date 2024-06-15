@@ -7,8 +7,16 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        title: const Center(child: Text("Login Page")),
+        elevation: 2,
+        title: const Center(
+            child: Text(
+          "Orangiee...!",
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'Times New Roman',
+              fontSize: 25,
+              fontWeight: FontWeight.bold),
+        )),
         backgroundColor: Colors.amber[800],
       ),
       body: Padding(
@@ -37,6 +45,7 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       TextFormField(
+                        cursorColor: Colors.orange,
                         decoration: const InputDecoration(
                           hintText: 'Enter your username',
                           labelText: 'Username',
@@ -54,6 +63,7 @@ class LoginScreen extends StatelessWidget {
                         height: 30,
                       ),
                       TextFormField(
+                        cursorColor: Colors.orange,
                         decoration: const InputDecoration(
                           hintText: '*****',
                           labelText: 'Password',
@@ -72,6 +82,11 @@ class LoginScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.orange,
+                          elevation: 10,
+                        ),
                         child: const Text(
                           'Login',
                           style: TextStyle(color: Colors.black),
@@ -81,6 +96,30 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('First time on this app?'),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  TextButton(
+                      style:
+                          TextButton.styleFrom(backgroundColor: Colors.white38),
+                      onPressed: () {},
+                      child: const Text(
+                        'SignUp',
+                        style: TextStyle(
+                            fontFamily: 'Times New Roman',
+                            fontSize: 15,
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold),
+                      )),
+                ],
+              )
             ],
           ),
         ),
