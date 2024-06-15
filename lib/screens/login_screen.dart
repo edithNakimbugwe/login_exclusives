@@ -13,39 +13,62 @@ class LoginScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 100, 30, 10),
-        child: Column(
-          children: [
-            const Text(
-              'Login',
-              style: TextStyle(
-                  fontFamily: 'Times New Roman',
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
-            ),
-            Container(
-              height: 300,
-              width: 800,
-              decoration: BoxDecoration(
-                  border: Border.all(),
-                  borderRadius: BorderRadius.circular(20)),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(30, 50, 30, 10),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      decoration: const InputDecoration(hintText: 'Type here'),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField()
-                  ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text(
+                'Login',
+                style: TextStyle(
+                    fontFamily: 'Times New Roman',
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                height: 300,
+                width: 800,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.orange),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 50, 30, 10),
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        decoration: const InputDecoration(
+                            hintText: 'Enter your username',
+                            labelText: 'Username'),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(
+                            focusColor: Colors.orange,
+                            hintText: '*****',
+                            labelText: 'Password'),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
+      backgroundColor: Colors.orange[100],
     );
   }
 }
