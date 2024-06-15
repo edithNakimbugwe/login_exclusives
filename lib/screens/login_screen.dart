@@ -13,22 +13,37 @@ class LoginScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 100, 30, 10),
-        child: Container(
-          height: 300,
-          width: 800,
-          decoration: BoxDecoration(
-              border: Border.all(), borderRadius: BorderRadius.circular(20)),
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: const InputDecoration(hintText: 'Type here'),
+        child: Column(
+          children: [
+            const Text(
+              'Login',
+              style: TextStyle(
+                  fontFamily: 'Times New Roman',
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold),
+            ),
+            Container(
+              height: 300,
+              width: 800,
+              decoration: BoxDecoration(
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(20)),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(30, 50, 30, 10),
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: const InputDecoration(hintText: 'Type here'),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField()
+                  ],
+                ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormField()
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
