@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
                     width: 160,
                     height: 150,
                     decoration: BoxDecoration(
-                      color: Colors.orange,
+                      color: Colors.orange[100],
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
                         color: Colors.black,
@@ -42,20 +42,42 @@ class HomePage extends StatelessWidget {
                     ),
                     child: Center(
                         child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Item $index"),
                         const SizedBox(
-                          height: 10,
+                          height: 35,
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ElevatedButton(
-                                onPressed: () {}, child: const Text("Buy")),
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.orange,
+                                elevation: 10,
+                              ),
+                              child: const Text(
+                                'Buy',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ),
                             const SizedBox(
                               width: 5,
                             ),
                             ElevatedButton(
-                                onPressed: () {}, child: const Text("Cart")),
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.black,
+                                backgroundColor: Colors.orange,
+                                elevation: 10,
+                              ),
+                              child: const Text(
+                                'Cart',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            )
                           ],
                         )
                       ],
