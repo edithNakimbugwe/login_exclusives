@@ -85,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Get.to(const HomePage());
+                          Get.to(HomePage());
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.black,

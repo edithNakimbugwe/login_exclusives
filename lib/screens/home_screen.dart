@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:login_project/screens/login_screen.dart';
+import 'package:login_project/screens/product_tile.dart';
+
+import '../controller/product_controller.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final ProductController pdtController = Get.put(ProductController());
 
   @override
   Widget build(BuildContext context) {
@@ -27,69 +32,16 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Flexible(
-              child: MasonryGridView.count(
-                crossAxisCount: 2,
-                itemCount: 1000,
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 160,
-                    height: 150,
-                    decoration: BoxDecoration(
-                      color: Colors.orange[100],
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 2,
-                      ),
-                    ),
-                    child: Center(
-                        child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Item $index"),
-                        const SizedBox(
-                          height: 35,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Get.to(const LoginScreen());
-                              },
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black,
-                                backgroundColor: Colors.orange,
-                                elevation: 10,
-                              ),
-                              child: const Text(
-                                'Buy',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 5,
-                            ),
-                            ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.black,
-                                backgroundColor: Colors.orange,
-                                elevation: 10,
-                              ),
-                              child: const Text(
-                                'Cart',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            )
-                          ],
-                        )
-                      ],
-                    )),
-                  );
-                },
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
+              child: Obx(
+                () => MasonryGridView.count(
+                  crossAxisCount: 2,
+                  itemCount: pdtController.productList.length,
+                  itemBuilder: (context, index) {
+                    return ProductTile(pdtController.productList[index]);
+                  },
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                ),
               ),
             ),
           ],
