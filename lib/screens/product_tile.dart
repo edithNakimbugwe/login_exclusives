@@ -3,7 +3,7 @@ import 'package:login_project/model/product_model.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
-  const ProductTile(this.product);
+  const ProductTile(this.product, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +20,9 @@ class ProductTile extends StatelessWidget {
                   height: 180,
                   width: double.infinity,
                   clipBehavior: Clip.antiAlias,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(4)),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      color: Colors.orange[100]),
                   child: Image.network(
                     product.imageLink,
                     fit: BoxFit.cover,
@@ -64,17 +65,34 @@ class ProductTile extends StatelessWidget {
                     const SizedBox(
                       height: 8,
                     ),
-                    Text(
-                      product.price,
-                      maxLines: 2,
-                      style: const TextStyle(
-                          fontFamily: 'Times New Roman',
-                          fontWeight: FontWeight.bold,
-                          overflow: TextOverflow.ellipsis),
-                    ),
                   ],
                 ),
-              )
+              ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                Text(
+                  product.price,
+                  maxLines: 2,
+                  style: const TextStyle(
+                      fontFamily: 'Times New Roman',
+                      fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                const Text(
+                  "US Dollas",
+                  style: TextStyle(
+                      fontFamily: 'Times New Roman',
+                      fontWeight: FontWeight.bold,
+                      overflow: TextOverflow.ellipsis),
+                )
+              ],
+            )
           ],
         ),
       ),

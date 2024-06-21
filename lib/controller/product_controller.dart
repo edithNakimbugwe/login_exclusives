@@ -6,6 +6,7 @@ import '../model/product_model.dart';
 
 class ProductController extends GetxController {
   var productList = <Product>[].obs;
+  var isLoading = true.obs;
 
   @override
   void onInit() {
@@ -14,9 +15,14 @@ class ProductController extends GetxController {
   }
 
   void fetchProducts() async {
-    var products = await RemoteServices.fetchProducts();
-    if (products != null) {
-      productList.value = products;
+    isLoading(true);
+    try {
+      var products = await RemoteServices.fetchProducts();
+      if (products != null) {
+        productList.value = products;
+      }
+    } finally {
+      isLoading(false);
     }
   }
 }

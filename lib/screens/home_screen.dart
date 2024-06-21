@@ -1,7 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:login_project/screens/login_screen.dart';
 import 'package:login_project/screens/product_tile.dart';
 
 import '../controller/product_controller.dart';
@@ -32,17 +33,24 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Flexible(
-              child: Obx(
-                () => MasonryGridView.count(
-                  crossAxisCount: 2,
-                  itemCount: pdtController.productList.length,
-                  itemBuilder: (context, index) {
-                    return ProductTile(pdtController.productList[index]);
-                  },
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                ),
-              ),
+              child: Obx(() {
+                if (pdtController.isLoading.value) {
+                  return Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.orange,
+                  ));
+                } else {
+                  return MasonryGridView.count(
+                    crossAxisCount: 2,
+                    itemCount: pdtController.productList.length,
+                    itemBuilder: (context, index) {
+                      return ProductTile(pdtController.productList[index]);
+                    },
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                  );
+                }
+              }),
             ),
           ],
         ),
